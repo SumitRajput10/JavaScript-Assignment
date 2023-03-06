@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.button{
+    padding: 15px ;
+    margin: 1px -1px;
+}
+.text-center {
+    text-align: center;
+}
+/* .flex{
+    display: flex;
+} */
+/* .flex-col{
+    flex-direction: column;
+    justify-content: center;
+} */
+.item-center{
+    align-items: center;
+}
+.mx-auto{
+    margin: 1px;
+}
+.button{
+    height: 40px;
+    width: 70px;
+    border: none;
+}
+.dropbutton{
+    width: 120px;
+    height: 40px;
+    border: none;
+}
+input{
+    width: 360px;
+    height: 80px;
+    font-size: 60px;
+    text-align: right;
+    border: none;
+}
+
