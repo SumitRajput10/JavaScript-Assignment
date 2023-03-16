@@ -17,33 +17,33 @@
         <table>
             <tr class="row">
                 <td colspan="5" class="calc_input">
-                  <input id ="input_data" type="text" name="calc_input" style="text-align: right" placeholder="0" />
-                </td>
-              </tr>
-            <tr class="row">
-                <td>
-                    <button id="deg" class="button deg-btn">DEG</button>
-                    <button id="fe" class="button fe-btn">F-E</button>
+                    <input id="input_data" type="text" name="calc_input" style="text-align: right" placeholder="0" />
                 </td>
             </tr>
             <tr class="row">
                 <td>
-                    <button id="mc" class="button">MC</button>
-                    <button id="mr" class="button">MR</button>
-                    <button id="mp" class="button">M+</button>
-                    <button id="mm" class="button">M-</button>
-                    <button id="ms" class="button">MS</button>
+                    <button id="deg" class="button deg_btn" onclick="DtR()">DEG</button>
+                    <button id="fe" class="button fe_btn">F-E</button>
+                </td>
+            </tr>
+            <tr class="row">
+                <td>
+                    <button id="mc" class="button memoryfunction">MC</button>
+                    <button id="mr" class="button memoryfunction">MR</button>
+                    <button id="mp" class="button memoryfunction">M+</button>
+                    <button id="mm" class="button memoryfunction">M-</button>
+                    <button id="ms" class="button memoryfunction">MS</button>
                 </td>
             </tr>
             <tr class="row">
                 <td>
                     <select name="Trigonometry" id="trigonometry">
-                        <option value="sin">∠ Trigonometry</option>
+                        <option value="trigonometry">∠ Trigonometry</option>
                         <option value="sin">sin</option>
                         <option value="cos">cos</option>
                         <option value="tan">tan</option>
                     </select>
-                    <!-- <button class="dropbutton">Trignometry</button>
+                    <!-- <button class="dropbutton">Trigonometry</button>
                     <button class="dropbutton">Function</button> -->
                     <select name="Function" id="function">
                         <option value="function">ƒ Function</option>
@@ -55,7 +55,7 @@
             </tr>
             <tr class="row">
                 <td>
-                    <button class="button">2ⁿᵈ</button>
+                    <button id="changeop" class="button" onclick="changeop()">2ⁿᵈ</button>
                     <button class="button" onclick="pi(value)">π</button>
                     <button class="button" onclick="e()">e</button>
                     <button class="button" onclick="del(true)"><b>C</b></button>
@@ -64,7 +64,7 @@
             </tr>
             <tr class="row">
                 <td>
-                    <button class="button" onclick="sqr()"><i>X</i><sup>2</sup></button>
+                    <button id="square" class="button" onclick="sqr()"><i>X</i><sup>2</sup></button>
                     <button class="button" onclick="fractional()">1/<i>x</i></button>
                     <button class="button" onclick="modulus()"><i>|x|</i></button>
                     <button class="button" onclick="expo()">exp</button>
@@ -73,7 +73,7 @@
             </tr>
             <tr class="row">
                 <td>
-                    <button class="button" onclick="sqrt()">2√<i>x</i></button>
+                    <button id="squareroot" class="button" onclick="sqrt()">2√<i>x</i></button>
                     <button class="button" onclick="addData('(')">(</button>
                     <button class="button" onclick="addData(')')">)</button>
                     <button class="button" onclick="factorial()"><i>n</i>!</button>
@@ -84,27 +84,36 @@
             <tr class="row">
                 <td>
                     <button class="button" onclick="power()"><i>X<sup>y</sup></i></button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData(7)">7</button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData(8)">8</button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData(9)">9</button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData(7)">7</button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData(8)">8</button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData(9)">9</button>
                     <button class="button" onclick="addData('*')">*</button>
                 </td>
             </tr>
             <tr class="row">
                 <td>
-                    <button class="button" onclick="ten()" >10<sup><i>x</i></sup></button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData(4)">4</button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData(5)">5</button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData(6)">6</button>
+                    <button class="button" onclick="ten()">10<sup><i>x</i></sup></button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData(4)">4</button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData(5)">5</button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData(6)">6</button>
                     <button class="button" onclick="addData('-')">-</button>
                 </td>
             </tr>
             <tr class="row">
                 <td>
-                    <button class="button" onclick="log()">log<sub>2</sub></button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData(1)">1</button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData(2)">2</button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData(3)">3</button>
+                    <button id="log2" class="button" onclick="log()">log<sub>2</sub></button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData(1)">1</button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData(2)">2</button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData(3)">3</button>
                     <button class="button" onclick="addData('+')">+</button>
                 </td>
             </tr>
@@ -112,15 +121,13 @@
                 <td>
                     <button class="button" onclick="ln()">ln</button>
                     <button class="button" style="background-color: white" onclick="plus_minus()">+/-</button>
-                    <button class="button" style="font-weight :900; background-color: white" onclick="addData('0')">0</button>
+                    <button class="button" style="font-weight :900; background-color: white"
+                        onclick="addData('0')">0</button>
                     <button class="button" style="background-color: white" onclick="addData('.')">.</button>
                     <button class="button" style="background-color: rgb(132, 182, 249);" onclick="equal()">=</button>
                 </td>
             </tr>
         </table>
-
-
-
 
         <script defer src="script.js"></script>
 </body>
