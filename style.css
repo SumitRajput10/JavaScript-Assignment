@@ -1,25 +1,37 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
 }
-.button{
-   cursor: pointer;
+
+.button {
+    cursor: pointer;
 }
-.button:hover{
+
+.button:hover {
     cursor: pointer;
     border: solid rgb(132, 182, 249) 2px;
-} 
-table{
+}
+
+table {
     background-color: rgb(242, 242, 242);
 }
-.calc_input{  
+
+.calc_input {
     background-color: rgb(242, 242, 242);
 }
-button.backspace:hover{
+
+button.backspace:hover {
     cursor: pointer;
     border: solid rgb(255, 0, 0) 2px;
-} 
-#mp:hover, #mm:hover, #ms:hover, #mr:hover, #mc:hover, #deg:hover, #fe:hover{
+}
+
+#mp:hover,
+#mm:hover,
+#ms:hover,
+#mr:hover,
+#mc:hover,
+#deg:hover,
+#fe:hover {
     cursor: pointer;
     border: solid rgb(42, 42, 42) 2px;
-} 
+}

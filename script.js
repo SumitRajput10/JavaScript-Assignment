@@ -6,6 +6,7 @@ let memData;
 let memoryFlag = false;
 let changeflag = true;
 let tempdata;
+let memstore = false;
 
 //----------------Input Data----------------------------------------
 function addData(number) {
@@ -24,52 +25,67 @@ function DtR() {
 //-----------------Memory Functions---------------------------------------
 
 
-// document.querySelectorAll('.memoryFunction').forEach((element)=>{
-//     element.addEventListener('click', ()=>{
-//         memoryFunction(element)
-//         console.log(true)
-//     })
-// })
-// function memoryFunction(ele) {
-//     let eleId = ele.attributes.id.value;
-//     if (eleId == "mp") {
-//         if (!memoryFlag) {
-//             memData = "";
-//             document.getElementById("mc").style.color = "Black";
-//             document.getElementById("mr").style.color = "Black";
-//             document.getElementById("ms").style.color = "Black";
-//             memoryFlag = true;
-//         }
-//         (memoryFlag) ? memData += eval(input.value) + "+" : NULL;
-//         input.value = "";
-//     }
-//     else if (eleId == "mm") {
-//         if (!memoryFlag) {
-//             memData = "";
-//             document.getElementById("mc").style.color = "Black";
-//             document.getElementById("mr").style.color = "Black";
-//             document.getElementById("ms").style.color = "Black";
-//             memoryFlag = true;
-//         }
-//         (memoryFlag) ? memData += eval(input.value) + "-" : NULL;
-//         input.value = "";
-//     }
-//     else if (eleId == "mr" && memoryFlag) {
-//         (input.value == "") ? memData = memData.substring(0, memData.length - 1) : memData += input.value;
-//         input.value = eval(memData);
-//     }
-//     else if (eleId == "mc" && memoryFlag) {
-//         memData = "";
-//         console.log("memory is cleared");
-//         document.getElementById("mc").style.color = "rgb(163, 163, 163)";
-//         document.getElementById("mr").style.color = "rgb(163, 163, 163)";
-//         document.getElementById("ms").style.color = "rgb(163, 163, 163)";
-//         memoryFlag = false;
-//     } else if (eleId == "ms" && memoryFlag) {
-//         memData = eval(memData);
-//         console.log(`Last calculation ${memData} stored successfully`);
-//     }
-// }
+document.querySelectorAll('.memoryfunction').forEach((element)=>{
+    element.addEventListener('click', ()=>{
+        memoryFunction(element)
+        // console.log(true)
+        console.log(`stored ${memData} data`)
+    })
+})
+function memoryFunction(ele) {
+    let eleId = ele.attributes.id.value;
+    if (eleId == "mp") {
+        console.log(memData)
+        if (memstore){
+            memData += '+';
+            memstore = false;
+            // return ;
+        }
+        if (!memoryFlag) {
+            memData = "";
+            document.getElementById("mc").style.color = "Black";
+            document.getElementById("mr").style.color = "Black";
+            document.getElementById("ms").style.color = "Black";
+            memoryFlag = true;
+        }
+
+        if (memoryFlag) memData += eval(input.value) + "+";
+        input.value = "";
+    }
+    else if (eleId == "mm") {
+        if (memstore){
+            memData += '-';
+            memstore = false;
+            // return ;
+        }
+        if (!memoryFlag) {
+            memData = "";
+            document.getElementById("mc").style.color = "Black";
+            document.getElementById("mr").style.color = "Black";
+            document.getElementById("ms").style.color = "Black";
+            memoryFlag = true;
+        }
+        if(memoryFlag) memData += eval(input.value) + "-";
+        input.value = "";
+    }
+    else if (eleId == "mr" && memoryFlag) {
+        (input.value == "") ? memData = memData.substring(0, memData.length - 1) : memData += input.value;
+        input.value = eval(memData);
+    }
+    else if (eleId == "mc" && memoryFlag) {
+        memData = "";
+        console.log("memory is cleared");
+        document.getElementById("mc").style.color = "rgb(163, 163, 163)";
+        document.getElementById("mr").style.color = "rgb(163, 163, 163)";
+        document.getElementById("ms").style.color = "rgb(163, 163, 163)";
+        memoryFlag = false;
+    } else if (eleId == "ms" && memoryFlag) {
+        memstore = true;
+        memData = eval(memData);
+        console.log(memData)
+        console.log(`Last calculation ${memData} stored successfully`);
+    }
+}
 
 
 //-----------------Trignometry---------------------------------------------------
@@ -122,12 +138,14 @@ document.getElementById('function').addEventListener('change', (event) => {
 // ----------------------------First Row--------------------------
 const changeop = () => {
     if (changeflag) {
+        document.getElementById("changeop").innerHTML = "3<sup>rd</sup>";
         document.getElementById("square").innerHTML = "X<sup>3</sup>";
         document.getElementById("squareroot").innerHTML = "3√x";
         document.getElementById("log2").innerHTML = "log<sub>10</sub>";
         changeflag = false;
     }
     else {
+        document.getElementById("changeop").innerHTML = "2<sup>nd</sup>";
         document.getElementById("square").innerHTML = "X<sup>2</sup>";
         document.getElementById("squareroot").innerHTML = "2√x";
         document.getElementById("log2").innerHTML = "log<sub>2</sub>";
